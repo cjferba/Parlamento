@@ -1,0 +1,123 @@
+# Yo: #ifndef #define
+# eso antes dl la clase en el punto h sirve pa algo?xD
+#
+# Óscar: xDD
+# qué estás haciendo? mp2? o ED? xD
+#
+# Yo: jajaj
+# esk lo e visto en un calse y digo pos servira pa algo
+# xDD
+#
+# Óscar: eso sirve para que si ya parte de las funciones se han copiado en otro tipo archivo, pues no se copie el código de nuevo
+# es decir
+# tienes un archivo, hola.cpp
+# y en hola.h tienes el iostream, y el cmath por ejemplo
+# lo que hacen los includes es copiar el código del cmath en hola.cpp no?
+# pues si ahora te manejas con más archivos como por ejemplo adios.cpp y adios.h
+# y en el adios.h llamas a hola.h y luego en tu adios .h tienes ya puesto iostream. Sirve para que no se copie dos veces las mismas librerías
+# me explico?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#ifndef SUMA_H
+#define SUMA_H
+ /**
+  * @class Operacion
+  *
+  * @brief Esta es la clase Operacion. Encapsula la funcionalidad de un conjunto de operaciones aritm&eacute;ticas.
+  *
+  * Esto es un comentario de tipo doxygen y sirve para documentar el c&oacute;digo fuente y que sea m&aacute;s f&aacute;cil saber qu&eacute;
+  * hace por una persona ajena a su implementaci&oacute;n. Este tipo de comentarios son los que se emplean para generar posteriormente una
+  * documentaci&eacute; de nuestras clases en formato html con el programa <b>doxygen</b>. Cada etiqueta o <i>tag</i> est&aacute; presente 
+  * es los comentarios est&aacute; compuesta de un car&aacute;cter '@' seguido del nombre de la etiqueta. Algunas etiquetas de utilidad son:
+  * <ul>
+  *   <li><b>class</b>: para declaraciones de clases</li>
+  *   <li><b>author</b>: para indicar el autor de la clase</li>
+  *   <li><b>brief</b>: descripci&oacute;n de lo que hace un m&eacute;todo de una clase</li>
+  *   <li><b>param</b>: descripci&oactue;n de para qu&eactue; sirve un parametro dentro de un m&eacute;todo</li>
+  *   <li><b>return</b>: descripci&oacute;n de lo que devuelve el m&eacute;todo.</li>
+  * </ul>
+  * @author V&iacute;ctor L&oacute;pez Salazar
+  * 
+  */
+
+class Operacion {
+
+/*
+ *
+ * Modificador de acceso a miembro de clase. Existen public, private o protected.
+ * 
+ * Public indica que los miembros que se encuentran bajo este modificador pueden ser
+ * llamados desde otras clases, por ejemplo desde cualquier m&eacute;todo podemos llamar a 
+ * suma, resta, multiplicacion, division y obtenerUltimoResultado.
+ */
+public:
+        /**
+         *  @brief suma dos numeros.
+         *  @param a  numero a
+         *  @param b  numero b
+         *  @return a + b
+         */
+	double suma(double a, double b);
+        /**
+         *  @brief resta dos numeros.
+         *  @param a  numero a
+         *  @param b  numero b
+	 *  @return a - b
+         */
+	double resta(double a, double b);
+        /**
+         *  @brief multiplica dos numeros
+         *  @param a  numero a
+         *  @param b  numero b
+         *  @return a * b
+         */
+	double multiplicacion(double a, double b);
+        /**
+         *  @brief divide dos numeros: a / b
+         *  @param a  numero a
+         *  @param b  numero b
+         *  @return  a / b
+         */
+	double division(double a, double b);
+
+        /**
+         *  @brief devuelve el resultado de la última operación realizada.
+         *  @return el resultado de la última operación realizada
+         */
+        double obtenerUltimoResultado();
+
+/*
+ * Private indica que los miembros que se encuentren debajo de ese modificador, s&oacute;lo
+ * pueden ser llamados por miembros de la misma clase donde se declara. Es decir resultado,
+ * s&oacute;lo puede referenciarse en la implementaci&oacute;n de suma, resta, multiplicacion,
+ * division y obtenerUltimoResultado.
+ */
+
+private:
+	double resultado;
+
+};
+
+#endif

@@ -1,0 +1,91 @@
+#include<cstring>
+#include <iostream>
+#include<iomanip>
+#include"partido.h"
+#include<new>
+
+using namespace std;
+partido :: partido (){
+
+	nombre[0]='\0';
+	votos=0;
+	escanios=0;
+	sig=0;
+}
+partido :: partido (char nombre1[],int votos1,int escanios1,partido *sig1){
+
+	strcpy(nombre,nombre1);
+	votos=votos1;
+	escanios=escanios1;
+	sig=sig1;
+}
+
+partido :: partido (const partido& otro){
+	
+	strcpy(nombre,otro.nombre);
+	votos=otro.votos;
+	escanios=otro.escanios;
+	sig=otro.sig;
+}
+
+int partido :: vervotos(){
+	return votos;
+}
+void partido :: asignarescanios(int n){
+	escanios=n+escanios;
+}
+int partido :: verescanios (){
+	return escanios;
+}
+ostream & operator << (ostream & out, const partido & p){
+	out <<  setw(75) << left<< p.nombre << setw(8) << right << p.votos;
+	out << setw(8) << p.escanios ;
+		
+	return (out);
+}
+
+istream & operator >> (istream & in, partido & p){
+	do{
+ 		in.getline(p.nombre,75);
+	}while(p.nombre[0]=='\r'||p.nombre[0]=='\t'||p.nombre[0]==' '||p.nombre[0]=='\0');
+	bool ban;
+	for(int n=0;n<strlen(p.nombre)&&!ban;n++){
+			if(p.nombre[n]==' ' && p.nombre[n+1]==' '){
+				p.nombre[n]='\0';
+				ban= false;
+			}
+			if(p.nombre[n]=='\t'){
+				p.nombre[n]='\0';
+				ban= false;
+			}
+			if(p.nombre[n]=='\r'){
+				p.nombre[n]='\0';
+				ban= false;
+			}
+		}			
+	in>>p.votos;
+
+	
+	
+	return (in);
+}
+
+char* partido :: vernombre(){
+return nombre;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
